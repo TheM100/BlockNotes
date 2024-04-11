@@ -15,6 +15,9 @@ const Home = (() => {
     <CardNote/>
     <CardNote/>
     <CardNote/>
+    <CardNote/>
+    <CardNote/>
+    <CardNote/>
     
     </div>
     </>
