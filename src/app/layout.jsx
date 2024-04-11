@@ -9,7 +9,7 @@ export const metadata = {
   description: "Connect. Create. Collaborate: Notehub, where ideas take shape.",
   authors: [
     {
-      name: "Carlos Hermosillo",
+      name: "Carlos Gastelum",
       name: "Arturo Zambrano",
       name: "Gerardo Nuncio",
     },
