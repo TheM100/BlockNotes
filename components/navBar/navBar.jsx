@@ -9,7 +9,7 @@ function NavBar(){
         <DropDown/>
     </div>
     <input type="text" className="w-4/12 p-1 rounded-lg items-center" placeholder="Busca tu puto note" />
-    <button className="mr-4 bg-white p-1 rounded-lg">Iniciar sesion</button>
+    <button className="mr-4 bg-white p-1 rounded-lg text-lg text-cyan-600 font-medium">Iniciar sesion</button>
 </nav>
         </>
     )
