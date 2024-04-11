@@ -37,7 +37,7 @@ export default function Login() {
         </form>
         <p className="mt-4">
           ¿No tienes una cuenta?{" "}
-          <a href="registro.html" className="text-blue-500">
+          <a href="/register" className="text-blue-500">
             Regístrate aquí
           </a>
         </p>
