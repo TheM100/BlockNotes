@@ -7,8 +7,8 @@ function DropDown(){
         <>
     <div className=" bg-gray-50  w-full ml-2 border rounded-lg">
         
-       <button className="flex justify-around  " onClick={() => setOpen(true)}>
-            <span>Add new Note!</span>
+       <button className="flex flex-row justify-around  items-center  w-full font-medium " onClick={() => setOpen(true)}>
+            <span className="text-lg text-cyan-600">New Note!</span>
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
             </svg>
@@ -24,15 +24,15 @@ function DropDown(){
                 </svg>
                 </button>
                     <div className=" flex flex-col justify-center items-center">
-                        <div className="  w-2/3 flex flex-col  items-center border-4 rounded-lg font-sans my-4 ">
-                            <h2 className="text-xl text-white">Agrega tu nota aqui</h2>
+                        <div className="  w-10/12 flex flex-col  items-center border-dashed border-4 rounded-lg font-sans my-4 ">
+                            <h2 className="text-xl text-white font-medium">Agrega tu nota aqui</h2>
                             <form className=" flex flex-col m-5 w-full justify-center items-center" >
                                 <div className="flex flex-col items-center w-full">
-                                    <label className="text-2xl">Titulo</label>
+                                    <label className="text-2xl font-medium ">Titulo</label>
                                     <input className="w-10/12 border rounded-lg p-4" type="text" placeholder="here" />
                                 </div>
                                 <div className="flex flex-col items-center w-full">
-                                    <label className="text-lg">Cuerpo de la nota</label>
+                                    <label className="text-lg font-medium">Cuerpo de la nota</label>
                                     <textarea className="resize-none w-10/12 h-80 border rounded-lg"></textarea>
                                 </div>
                                 <button type="button" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded mt-2">Crear</button>
