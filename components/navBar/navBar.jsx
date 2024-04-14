@@ -7,7 +7,7 @@ function NavBar() {
             <nav className="bg-gray-800 fixed h-16  left-0 right-0 top-0 shadow-md">
                 <div className="h-full flex justify-between items-center mx-auto   lg:max-w-7xl">
 
-                    <div className="min-w-6 ">
+                    <div className="min-w-6">
                         <DropDown />
                     </div>
                     <input type="text" className="w-4/12 p-1 rounded-lg items-center" placeholder="Buscar..." />
