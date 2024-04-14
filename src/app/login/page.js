@@ -1,9 +1,20 @@
+'use client'
+import React from "react";
+import {useForm} from 'react-hook-form';
+
+
 export default function Login() {
+
+  const {register, handleSubmit} = useForm();
+  const dataLogin = ((data)=>{
+    console.log(data)
+  })
+  
   return (
     <div className="bg-gray-100 flex justify-center items-center h-screen">
       <div className="bg-white p-8 rounded shadow-md w-80">
         <h2 className="text-2xl mb-6">Iniciar sesión</h2>
-        <form action="procesar_login.php" method="POST">
+        <form action="procesar_login.php" method="POST" onSubmit={handleSubmit(dataLogin)}>
           <div className="mb-4">
             <label htmlFor="username" className="block mb-1">
               Nombre de usuario:
@@ -14,6 +25,7 @@ export default function Login() {
               name="username"
               required
               className="w-full px-4 py-2 border rounded"
+              {...register("nameInput")}
             />
           </div>
           <div className="mb-4">
@@ -26,6 +38,7 @@ export default function Login() {
               name="password"
               required
               className="w-full px-4 py-2 border rounded"
+              {...register("passwordInput")}
             />
           </div>
           <button
