@@ -16,7 +16,6 @@ function DropDown() {
                 </button>
 
                 <div className={`${!open && "hidden"} bg-gray-600/50 min-h-screen w-full fixed top-0 left-0 right-0 backdrop-blur-sm`} onClick={() => setOpen(false)}></div>
-
                 <NewNote open={open} setOpen={() => setOpen()} />
 
 
