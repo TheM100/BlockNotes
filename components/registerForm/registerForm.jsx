@@ -1,9 +1,11 @@
 "use client"
 
-export default function registerForm() {
+export default function RegisterForm() {
     return (
         <>
-            <form action="">
+        <div className="w-full h-full bg-white flex flex-col items-center ">
+        <h2 className="font-sans text-2xl mb-6">Registrate </h2>
+            <form action="" className="flex flex-col items-center">
                 <div className=" flex flex-col gap-3 w-96 mb-3">
                     <div className="flex flex-col gap-1">
                         <label className="text-lg">Nombre</label>
@@ -28,6 +30,7 @@ export default function registerForm() {
                     <a href="/login" className="text-blue-500"> Inicia sesion</a>
                 </div>
             </form>
+        </div>
         </>
     )
 }

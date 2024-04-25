@@ -11,7 +11,7 @@ function NavBar() {
                         <DropDown />
                     </div>
                     <input type="text" className="w-4/12 p-1 rounded-lg items-center" placeholder="Buscar..." />
-                    <button href="/login" className="mr-4 bg-white p-1 rounded-lg text-lg text-cyan-600 font-medium"><a href="/login" >Iniciar sesion</a></button>
+                    <button href="/login-register" className="mr-4 bg-white p-1 rounded-lg text-lg text-cyan-600 font-medium"><a href="/login-register" >Iniciar sesion</a></button>
                 </div>
             </nav>
         </>
