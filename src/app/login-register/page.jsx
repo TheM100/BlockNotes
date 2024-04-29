@@ -23,10 +23,10 @@ export default function LoginRegister() {
   
   
   return (
-    <section className="bg-gray-100 flex justify-center items-center w-5/6 h-screen">
+    <section className="bg-gray-300 flex justify-center items-center w-5/6 h-screen">
       <div className=" w-full h-5/6 flex flex-row justify-center">
       <div className=" bg-pink-800 w-2/6 rounded-l-lg bg-cover bg-center" style={{backgroundImage: "url('https://plus.unsplash.com/premium_photo-1669652639337-c513cc42ead6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8bm90YXN8ZW58MHx8MHx8fDA%3D')"}}></div>
-        <div className="bg-gray-300 w-3/6 flex flex-col items-center">
+        <div className="bg-gray-600 w-3/6 rounded-r-lg flex flex-col items-center">
           <BtnLR
           onLoginClick={handleLoginClick}
           onRegisterClick={handleRegisterClick}

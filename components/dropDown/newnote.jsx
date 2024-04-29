@@ -1,4 +1,18 @@
-export default function NewNote({ open, setOpen }) {
+import React from "react";
+import { useForm } from "react-hook-form";
+
+
+export default function NewNote({ open, setOpen, catchData}) {
+
+  const { register, handleSubmit, reset } = useForm()
+
+  const dataNote = ((data)=>{
+    console.log(data)
+    catchData(data)
+    reset()
+  })
+
+
   return (
     <div
       className={`${
@@ -27,21 +41,22 @@ export default function NewNote({ open, setOpen }) {
             <h2 className="text-xl text-white font-medium">
               Agrega tu nota aqui
             </h2>
-            <form className=" flex flex-col m-5 w-full justify-center items-center">
+            <form className=" flex flex-col m-5 w-full justify-center items-center" onSubmit={handleSubmit(dataNote)}>
               <div className="flex flex-col items-center w-full">
                 <label className="text-2xl font-medium ">Título</label>
                 <input
                   className="w-10/12 border rounded-lg p-4"
                   type="text"
                   placeholder="New title"
+                  {...register("titleNote")}
                 />
               </div>
               <div className="flex flex-col items-center w-full">
                 <label className="text-lg font-medium">Cuerpo de la nota</label>
-                <textarea className="resize-none w-10/12 h-80 border rounded-lg"></textarea>
+                <textarea className="resize-none w-10/12 h-80 border rounded-lg" {...register("bodyNote")}></textarea>
               </div>
               <button
-                type="button"
+                type="submit"
                 class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded mt-2"
               >
                 Crear

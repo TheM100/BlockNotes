@@ -2,8 +2,19 @@
 import React, { useState } from "react";
 import NewNote from "./newnote";
 
-function DropDown() {
+function DropDown({catchDataNav}) {
+    // {catchDataNav}
     const [open, setOpen] = useState(false)
+
+    // const [noteContent, setNoteContent] = useState({});
+
+    const dataNote =  (data) => {
+        // setNoteContent(data);
+        console.log(data)
+        catchDataNav(data)
+      
+    }
+
     return (
         <>
             <div className=" bg-gray-50  w-full ml-2 border rounded-lg">
@@ -16,7 +27,7 @@ function DropDown() {
                 </button>
 
                 <div className={`${!open && "hidden"} bg-gray-600/50 min-h-screen w-full fixed top-0 left-0 right-0 backdrop-blur-sm`} onClick={() => setOpen(false)}></div>
-                <NewNote open={open} setOpen={() => setOpen()} />
+                <NewNote open={open} setOpen={() => setOpen()} catchData={dataNote} />
 
 
             </div>

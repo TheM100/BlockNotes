@@ -18,7 +18,7 @@ export default function BtnLR({ onLoginClick, onRegisterClick }){
 
     return(
         <>
-        <div className="bg-gray-400 w-full   flex justify-end">
+        <div className="bg-gray-400 w-full rounded-r-lg  flex justify-end">
             <div className=" m-2">
                 <button className={`p-2 border rounded-l-lg ${loginClicked ? "bg-gray-200" : ""}`}onClick={handleLoginClick}>
                     Iniciar sesión
