@@ -2,21 +2,38 @@
 import React from "react";
 import DropDown from "../dropDown/dropDown";
 import { useState, useEffect } from "react";
+import { useRouter } from 'next/navigation';
 
 function NavBar({catchDataHome}) {
-    // {catchData}
-    // const [noteContent, setNoteContent] = useState({});
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const router = useRouter();
 
-    // useEffect(() => {
-    //     console.log(noteContent); // Esto se ejecutará después de que noteContent haya sido actualizado.
-    //     if (Object.keys(noteContent).length !== 0) {
-    //         catchData(noteContent);
-    //     }
-    // }, [noteContent]);
+    useEffect(() => {
+        
+        const token = localStorage.getItem('jwtToken');
+        if (token) {
+            setIsLoggedIn(true);
+        } else {
+            setIsLoggedIn(false);
+        }
+    }, []);
+
+    const handleLogin = () => {
+        router.push('/login-register'); 
+    };
+
+
+    const handleLogout = () => {
+        
+        localStorage.removeItem('jwtToken');
+        localStorage.removeItem('email');
+        localStorage.removeItem('_id');
+        setIsLoggedIn(false);
+        window.location.reload();
+    };
 
     const dataNote =  (data) => {
-        // setNoteContent(data);
-        console.log(data)
+            console.log(data)
          catchDataHome(data)
     }
     return (
@@ -26,11 +43,17 @@ function NavBar({catchDataHome}) {
 
                     <div className="min-w-6">
                         <DropDown catchDataNav={dataNote} /> 
-                        {/* catchDataNav={dataNote} */}
+                    
                     </div>
                     <input type="text" className="w-4/12 p-1 rounded-lg items-center" placeholder="Buscar..." />
-                    <button href="/login-register" className="mr-4 bg-white p-1 rounded-lg text-lg text-cyan-600 font-medium"><a href="/login-register" >Iniciar sesion</a></button>
+                    {/* Alternar entre botones dependiendo del estado de autenticación */}
+                    {isLoggedIn ? (
+                        <button className="mr-4 bg-white p-1 rounded-lg text-lg text-cyan-600 font-medium" onClick={() => handleLogout()}>Cerrar sesión</button>
+                    ) : (
+                        <button className="mr-4 bg-white p-1 rounded-lg text-lg text-cyan-600 font-medium" onClick={() => handleLogin()}>Iniciar sesión</button>
+                    )}
                 </div>
+
             </nav>
         </>
     )

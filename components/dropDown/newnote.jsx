@@ -1,14 +1,36 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { createNoteFetch } from "@/api/notes/route";
+import { useState, useEffect } from "react";
 
 
 export default function NewNote({ open, setOpen, catchData}) {
 
   const { register, handleSubmit, reset } = useForm()
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+        
+    const token = localStorage.getItem('jwtToken');
+    if (token) {
+        setIsLoggedIn(true);
+    } else {
+        setIsLoggedIn(false);
+    }
+}, []);
+
 
   const dataNote = ((data)=>{
     console.log(data)
     catchData(data)
+    reset()
+  })
+
+  const dataNoteServer = (async (data)=>{
+    const createdBy = localStorage.getItem('_id');
+    const newData = { ...data, createdBy };
+    console.log(newData)
+    await createNoteFetch(newData)
     reset()
   })
 
@@ -41,7 +63,7 @@ export default function NewNote({ open, setOpen, catchData}) {
             <h2 className="text-xl text-white font-medium">
               Agrega tu nota aqui
             </h2>
-            <form className=" flex flex-col m-5 w-full justify-center items-center" onSubmit={handleSubmit(dataNote)}>
+            <form className=" flex flex-col m-5 w-full justify-center items-center" onSubmit={handleSubmit(isLoggedIn ? dataNoteServer : dataNote)}>
               <div className="flex flex-col items-center w-full">
                 <label className="text-2xl font-medium ">Título</label>
                 <input
